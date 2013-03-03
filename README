@@ -1,0 +1,22 @@
+windows_vm_monitor
+
+Instruction
+-----------------
+This a simple windows vm monitor, which uses an exe file as agent to transfer guest system's mem, disk and other status
+info to a monitor server running in the host system.
+The exe agent(stored in the client dir) is written in autoit, you can compile it into exe file, and put it into the guest system. The agent was
+tested only on windows xp, I do not known is there any problems when it is running on other windows platform.
+The monitor server(stored in the server dir) is a simple script written in python, it will write guest system's status into a sqlite db.
+
+installation
+-----------------
+
+
+known issues
+-----------------
+
+
+contact
+-----------------
+I am glad if you want to improve this script, please contact me at me#knktc.com (please replace the # with @)
+
