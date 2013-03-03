@@ -8,8 +8,31 @@ The exe agent(stored in the client dir) is written in autoit, you can compile it
 tested only on windows xp, I do not known is there any problems when it is running on other windows platform.
 The monitor server(stored in the server dir) is a simple script written in python, it will write guest system's status into a sqlite db.
 
+
 installation
 -----------------
+Server
+The server part can be running on any os with a python environment. You should put the server dir to anywhere you'd like
+to and modify the config.ini file.
+A config.ini file in the server dir may be like this:
+
+    [server]
+    server_ip=192.168.11.55
+    server_port=8001
+    max_conn=10
+    conn_timeout=5
+    buffer_size=1024
+    db_file=host_status.s3db
+    table_name=t_status
+
+server_ip: Current system's ip. You should get it with ipconfig or ifconfig command. If the VMs are running on this host
+           with NAT mode, this ip should be the VMs' gateway ip.(If you are using KVM, the ip should be 192.168.122.1)
+server_port: the listening port of this server
+max_conn: max client count
+conn_timeout: timeout when the clients are trying to connect the server
+buffer_size: use this default value
+db_file: the default sqlite db file name, this file can be find in the server dir
+table_name: the default table name in the db file
 
 
 known issues
