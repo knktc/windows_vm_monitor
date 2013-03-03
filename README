@@ -11,7 +11,7 @@ The monitor server(stored in the server dir) is a simple script written in pytho
 
 installation
 -----------------
-Server
+*Server
 The server part can be running on any os with a python environment. You should put the server dir to anywhere you'd like
 to and modify the config.ini file.
 A config.ini file in the server dir may be like this:
@@ -33,6 +33,29 @@ conn_timeout: timeout when the clients are trying to connect the server
 buffer_size: use this default value
 db_file: the default sqlite db file name, this file can be find in the server dir
 table_name: the default table name in the db file
+
+**Client
+The client part is only working on windows platform. You should compile the kvm_monitor_client.au3 file to a single exe
+file, and distribute it with the config.ini file. The config.ini file in the Clinet dir may be like this:
+
+    [client]
+    first_run=0
+    domain_name=test_domain
+    disk_path=c:
+    server_ip=192.168.11.55
+    server_port=8001
+    buffer_size=1024
+    program_name=notepad
+
+first_run: set this flag to 1 after you distribute the client into VMs, this will cause the server side to perform an
+           "insert" action for the new add VMs
+domain_name: the names of VMs
+disk_path: this client will return the disk usage status, you can specify the disk drive you want to check
+server_ip: keep the same as the config.ini file in the server side
+server_port: keep the same as the config.ini file in the server side
+buffer_size: keep the same as the config.ini file in the server side
+program_name: this client will check running programs by checking the windows title, you should seperated multiple
+              programs by using "|"
 
 
 known issues
